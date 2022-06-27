@@ -75,7 +75,7 @@ CARBON = f'https://carbon.now.sh/?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=blackboa
          f'=14px&lh=133%25&si=false&es=2x&wm=false&code={code}&tb={header}'
 
 vk_public_page = "https://vk.com/public213721986"
-"""
+
 # CARBON
 browser.get(CARBON)
 # sleep(3)
@@ -89,7 +89,7 @@ sleep(2)
 downloaded_file = rename_file("carbon_images", "carbon", "cool_new_name")
 
 sleep(2)
-
+"""
 # INSTAGRAM
 # or use instabot: https://instagrambot.github.io/docs/en/For_developers.html
 
@@ -169,6 +169,28 @@ sleep(1)
 
 vk_continue_button = browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
 vk_continue_button.click()
+sleep(5)
 
+vk_post_field = browser.find_element(By.ID, "post_field")
+type_text(vk_post_field, "Все круто!")
+
+# vk_add_photo_button = browser.find_element(By.XPATH, '//*[@id="page_add_media"]/div/a/span/*[name="svg"][@fill="none"]')
+vk_add_photo_button = browser.find_element(By.CLASS_NAME, "ms_item_photo")
+vk_add_photo_button.click()
+sleep(2)
+
+print("Searching for upload photo button")
+vk_upload_photo = browser.find_element(By.ID, "photos_choose_upload_area_label15415913_-14")
+vk_upload_photo.click()
+sleep(2)
+pyautogui.write(downloaded_file)
+sleep(1)
+pyautogui.press('enter')
+sleep(2)
+vk_publish_button = browser.find_element(By.ID, "send_post")
+vk_publish_button.click()
+
+
+print("ALL DONE!")
 sleep(10)
 browser.quit()
