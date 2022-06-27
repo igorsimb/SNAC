@@ -74,6 +74,9 @@ CARBON = f'https://carbon.now.sh/?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=blackboa
          f'&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs' \
          f'=14px&lh=133%25&si=false&es=2x&wm=false&code={code}&tb={header}'
 
+vk_public_page = "https://vk.com/public213721986"
+"""
+# CARBON
 browser.get(CARBON)
 # sleep(3)
 
@@ -87,7 +90,9 @@ downloaded_file = rename_file("carbon_images", "carbon", "cool_new_name")
 
 sleep(2)
 
-# Instagram or use instabot: https://instagrambot.github.io/docs/en/For_developers.html
+# INSTAGRAM
+# or use instabot: https://instagrambot.github.io/docs/en/For_developers.html
+
 browser.get("https://www.instagram.com/")
 sleep(2)
 allow_cookies = browser.find_element(By.XPATH, "//button[contains(text(), 'Allow essential and optional cookies')]")
@@ -134,7 +139,36 @@ next_button.click()
 sleep(2)
 
 post_text_field = browser.find_element(By.XPATH, "//textarea[@aria-label='Write a caption...']")
-type_text(post_text_field, "Well shit. Looks like it's working")
+type_text(post_text_field, "This is how you print a for loop")
+
+sleep(2)
+instagram_share_button = browser.find_element(By.XPATH, "//button[contains(text(), 'Share')]")
+instagram_share_button.click()
+
+sleep(10)
+"""
+# VKONTAKTE
+browser.get(vk_public_page)
+sleep(3)
+vk_signin_button = instagram_share_button = browser.find_element(By.XPATH, "//button[contains(text(), 'Sign in')]")
+vk_signin_button.click()
+sleep(1)
+
+vk_login_field = browser.find_element(By.NAME, "login")
+vk_login_field.send_keys(os.getenv("VK_USERNAME"))
+sleep(1)
+
+# vk_continue_button = browser.find_element(By.XPATH, "//div[contains(text(), 'Continue')]")
+vk_continue_button = browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
+vk_continue_button.click()
+
+sleep(2)
+vk_password_field = browser.find_element(By.NAME, "password")
+vk_password_field.send_keys(os.getenv("VK_PASSWORD"))
+sleep(1)
+
+vk_continue_button = browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
+vk_continue_button.click()
 
 sleep(10)
 browser.quit()
