@@ -140,7 +140,7 @@ sixteen_by_nine.click()
 sleep(1)
 
 original_aspect_ratio = browser.find_element(By.XPATH,
-                                       '//*[local-name()="svg"][@aria-label="Photo Outline Icon"]')
+                                       '//*[name()="svg"][@aria-label="Photo Outline Icon"]')
 
 # //*[name()='svg']//*[name()='circle']
 # square.click()
