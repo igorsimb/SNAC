@@ -1,6 +1,6 @@
 .env
-carbon_images/*
-!carbon_images/.gitkeep
+posts/*
+!posts/.gitkeep
 
 ### Python template
 # Byte-compiled / optimized / DLL files
